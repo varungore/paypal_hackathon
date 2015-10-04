@@ -11,23 +11,53 @@
   </thead>
 
   <tbody>
-    <div class="text-center">
+    <div class="text-center row">
   
 
 
   <%= form_for :schedule, url: '/schedules' do |f| %>
+<div id="site_id">
 
-    Site <%= f.collection_select :site_id, Site.all, :id,:name, include_blank: true %>
-    <br>
-    Program Leader: <%= f.collection_select :user_id, [], :id, :name %><br />
-    Curriculum Id : <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name %><br />
-    Start Date   : <%= f.date_select(:start_date,:start_year => 1950) %><br />
+  <div class="inline field">
+    <div class="ui big right pointing label">
+      Select Site ID
+    </div>
 
 
-    <%= f.submit %>
+        <%= f.collection_select :site_id, Site.all, :id,:name, include_blank: true%>
+
+  </div>
+
+</div>
+
+    <div id="pl_name">
+      <div class="inline field">
+        <div class="ui big right pointing label">
+          Program Leader
+        </div>
+     <%= f.collection_select :user_id, [], :id, :name %>
+    </div>
+    <div id="cir_name">
+      <div class="ui big right pointing label">
+        Curriculum Id
+      </div>
+    <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name %>
+    </div>
+    <div id="start_date">
+      <div class="ui big right pointing label">
+        Start Date
+      </div>
+      <%= f.date_select(:start_date,:start_year => 1950) %>
+    </div>
+
+      <div>
+        <%= f.submit%>
+      </div>
+
   <% end %>
 
 </div>
+        </div>
   </tbody>
 </table>
 <div class="ui container">
