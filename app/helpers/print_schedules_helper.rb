@@ -1,0 +1,2 @@
+module PrintSchedulesHelper
+end
