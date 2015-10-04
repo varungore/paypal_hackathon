@@ -11,11 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004074600) do
+ActiveRecord::Schema.define(version: 20151004091116) do
 
   create_table "available_schedules", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "program_leader_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   create_table "curriculums", force: :cascade do |t|

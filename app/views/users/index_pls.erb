@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h3>Program Leaders</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @pls.each do |pl| %>
+            <tr>
+              <%=  pl.name %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

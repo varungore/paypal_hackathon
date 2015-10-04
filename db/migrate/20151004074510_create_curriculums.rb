@@ -5,7 +5,7 @@ class CreateCurriculums < ActiveRecord::Migration
       t.string  :name
       t.string	:file_url
       t.integer	:duration
-
+      
       t.timestamps null: false
     end
   end

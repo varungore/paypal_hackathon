@@ -1,0 +1,3 @@
+class ProgramOrganizer < User
+  
+end

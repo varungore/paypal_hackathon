@@ -12,4 +12,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def index_pls
+    @pls = ProgramLeader.all
+  end
+
 end
