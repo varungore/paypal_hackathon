@@ -61,6 +61,11 @@ class SitesController < ApplicationController
     end
   end
 
+  def search 
+    result = Site.where("name like '#{params[:key]}%'")
+    render json: {results: result.first}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site

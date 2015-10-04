@@ -16,3 +16,16 @@
 //= require_tree .
 // Loads all Semantic javascripts
 //= require semantic-ui
+$(document).ready(function(){
+	$("#search_sites").keyup(function(){
+	  $.ajax({
+	    method: "POST",
+	    url: "/sites/search/",
+	    data: {key: $(this).val()}
+	  }).done(function(data) {
+	    $("#site_results").innerHTML = data['results'].name;
+	    console.log(data['results'].name);
+	  });
+	});
+});
+

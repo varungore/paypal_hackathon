@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   get 'program_leaders' => 'users#index_pls'
+
+  post 'sites/search' => 'sites#search'
 end
