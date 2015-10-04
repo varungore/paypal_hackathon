@@ -16,4 +16,14 @@ class UsersController < ApplicationController
     @pls = ProgramLeader.all
   end
 
+  def search_pls
+    data = []
+    result = ProgramLeader.select(:id, :name).where(site_id: params[:site_id].to_i)
+    result.each do |pl|
+      data << [pl.id, pl.name]
+    end
+    render json: {data: data}
+  end
+
+
 end

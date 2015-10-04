@@ -63,6 +63,7 @@ class SitesController < ApplicationController
 
   def search 
     result = Site.where("name like '#{params[:key]}%'")
+    puts result.inspect
     render json: {results: result.first}
   end
 

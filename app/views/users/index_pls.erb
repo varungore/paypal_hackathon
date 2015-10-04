@@ -18,13 +18,31 @@
 
 </script>
 
-<div class="ui search">
-  <div class="ui icon input">
-    <input class="prompt" id="search_sites" type="text" placeholder="Common passwords...">
-    <i class="search icon"></i>
+<div class="text-center">
+  <div class="ui search">
+    <div class="ui icon input">
+      <input class="prompt" id="search_sites" type="text" placeholder="Common passwords...">
+      <i class="search icon"></i>
+    </div>
+    <div class="results" id="site_results"></div>
   </div>
-  <div class="results" id="site_results"></div>
+
+
+  <%= form_for :schedule do |f| %>
+  
+    Site <%= f.collection_select :site_id, Site.all, :id,:name, include_blank: true %>
+    <br>
+    Program Leader: <%= f.collection_select :user_id, [], :id, :name %><br />
+    Curriculum Id : <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name %><br />
+    Start Date   : <%= f.date_select(:start_date,:start_year => 1950) %><br />
+
+
+    <%= f.submit %>
+  <% end %>
+
 </div>
+
+
 
 <div class="ui container">
         <table class="ui celled table">
