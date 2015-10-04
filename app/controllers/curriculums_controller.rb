@@ -1,6 +1,22 @@
 class CurriculumsController < ApplicationController
   before_action :set_curriculum, only: [:show, :edit, :update, :destroy]
 
+  # Upload the file
+  def curriculum_upload
+    duration = params['text']
+    name =  params['file'].original_filename
+    directory = "/Users/dhara/Github/CurriculumDB"
+    # create the file path
+    path = File.join(directory, name)
+    # write the file
+    File.open(path, "wb") { |f| f.write(params['file'].read) }
+    puts name
+    Curriculum.create_curriculum({duration: params[:duration], name: name, file_url: path})
+    puts path
+    @curriculums = Curriculum.all
+    redirect_to action:"index"
+  end
+
   # GET /curriculums
   # GET /curriculums.json
   def index
@@ -10,6 +26,7 @@ class CurriculumsController < ApplicationController
   # GET /curriculums/1
   # GET /curriculums/1.json
   def show
+    @curriculum = Curriculum.find(params[:id])
   end
 
   # GET /curriculums/new
@@ -71,4 +88,5 @@ class CurriculumsController < ApplicationController
     def curriculum_params
       params[:curriculum]
     end
+
 end

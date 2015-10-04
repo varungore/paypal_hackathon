@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Curriculums</h1>
-
 <table>
   <thead>
     <tr>
@@ -10,13 +8,91 @@
   </thead>
 
   <tbody>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Bootstrap Login Form</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="../../static/css/styles.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-header">
+          <h1>
+            Upload Curriculum file
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--login modal-->
+  <form role="form" action="curriculum/upload" method="POST" enctype="multipart/form-data">
+    Curriculum Duration: <input type="text" name="duration" id="Duration"><br><br>
+    <input type="hidden" name="<%=request_forgery_protection_token.to_s %>" value=<%=form_authenticity_token%> >
+            <div class="box-body">
+              <div class="form-group">
+                <input type="file" id="exampleInputFile" value="Upload" name="file">
+                <button type="submit" name="Upload" >Upload</button>
+              </div>
+            </div><!-- /.box-body -->
+          </form>
+  </div>
+    <div class="ui container">
+      <table class="ui celled table">
+        <thead>
+        <tr><th>Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr></thead>
+    <tbody>
     <% @curriculums.each do |curriculum| %>
-      <tr>
-        <td><%= link_to 'Show', curriculum %></td>
-        <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
-        <td><%= link_to 'Destroy', curriculum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= curriculum.name %></td>
+          <td><%= curriculum.file_url %></td>
+          <td><%= curriculum.duration %></td>
+          <td><%= link_to 'Show', curriculum %></td>
+          <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
+          <td><%= link_to 'Destroy', curriculum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
+      </tbody>
+      <tfoot>
+      <tr><th colspan="3">
+        <div class="ui right floated pagination menu">
+          <a class="icon item">
+            <i class="left chevron icon"></i>
+          </a>
+          <a class="item">1</a>
+          <a class="item">2</a>
+          <a class="item">3</a>
+          <a class="item">4</a>
+          <a class="icon item">
+            <i class="right chevron icon"></i>
+          </a>
+        </div>
+      </th>
+      </tr></tfoot>
+          <td></td>
+
+        </tr>
+  </table>
+
+  </body>
+  </html>
   </tbody>
 </table>
 
