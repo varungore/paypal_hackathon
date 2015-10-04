@@ -1,4 +1,4 @@
-ffclass SchedulesController < ApplicationController
+class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
   #before_action :authenticate_user!
   # GET /schedules
@@ -70,5 +70,6 @@ ffclass SchedulesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
       params[:schedule]
+      params.require(:schedule).permit(:name, :site_id, :user_id, :start_date, :curriculum_id)
     end
 end
