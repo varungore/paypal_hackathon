@@ -1,3 +1,4 @@
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 source 'https://rubygems.org'
 ruby '2.1.2'
 gem 'rails', '4.2.3'
@@ -25,6 +26,6 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
+#  gem 'pg'
   gem 'rails_12factor'
 end
