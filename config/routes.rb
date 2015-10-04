@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   get 'program_leaders' => 'users#index_pls'
-
+  post 'curriculum/upload' => 'curriculums#curriculum_upload'
   post 'sites/search' => 'sites#search'
   post 'program_leaders/search' => 'users#search_pls'
 end
